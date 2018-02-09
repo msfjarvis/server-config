@@ -1,0 +1,13 @@
+[Unit]
+Description=Caddy webserver service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/etc/caddy
+ExecStart=/usr/local/bin/caddy -conf /etc/caddy/Caddyfile
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

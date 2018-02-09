@@ -1,0 +1,13 @@
+[Unit]
+Description=Jarvis-CI-Bot service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/jarvis-ci-bot
+ExecStart=/root/jarvis-ci-bot/build.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

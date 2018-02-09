@@ -1,0 +1,13 @@
+[Unit]
+Description=Jarvis-CI-Bot service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/etc/caddy/core
+ExecStart=/usr/bin/node /etc/caddy/core/server.js -p 8080 -a : -w ~/
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
