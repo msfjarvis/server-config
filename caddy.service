@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=root
+User=caddy
 WorkingDirectory=/etc/caddy
 ExecStart=/usr/local/bin/caddy -conf /etc/caddy/Caddyfile
 Restart=on-abort

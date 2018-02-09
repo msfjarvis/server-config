@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-User=root
-WorkingDirectory=/etc/caddy/core
+User=msfjarvis
+WorkingDirectory=/home/msfjarvis
 ExecStart=/usr/bin/node /etc/caddy/core/server.js -p 8080 -a : -w ~/
 Restart=on-abort
 

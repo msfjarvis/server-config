@@ -4,9 +4,9 @@ After=network.target
 
 [Service]
 Type=simple
-User=root
-WorkingDirectory=/root/jarvis-ci-bot
-ExecStart=/root/jarvis-ci-bot/build.py
+User=bot
+WorkingDirectory=/home/bot/jarvis-ci-bot
+ExecStart=/home/bot/jarvis-ci-bot/build.py
 Restart=on-abort
 
 [Install]
