@@ -3,11 +3,20 @@ Description=Caddy webserver service
 After=network.target
 
 [Service]
+Restart=on-abort
 Type=simple
 User=caddy
 WorkingDirectory=/etc/caddy
-ExecStart=/usr/local/bin/caddy -conf /etc/caddy/Caddyfile
-Restart=on-abort
+
+ExecStart=/usr/local/bin/caddy -log stdout -agree=true -conf=/etc/caddy/Caddyfile
+ExecReload=/bin/kill -USR1 $MAINPID
+
+KillMode=mixed
+KillSignal=SIGQUIT
+TimeoutStopSec=5s
+
+LimitNOFILE=1048576
+LimitNPROC=512
 
 [Install]
 WantedBy=multi-user.target
