@@ -1,5 +1,5 @@
 [Unit]
-Description=Jarvis-CI-Bot service
+Description=UNO Telegram Bot service
 After=network.target
 
 [Service]
