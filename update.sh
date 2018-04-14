@@ -29,4 +29,5 @@ sleep 5
 for service in ${services};do
     reportWarning "Restarting ${service}"
     service ${service} restart
+    [[ -f /etc/systemd/system/${service}.service ]] || systemctl enable ${service}
 done
