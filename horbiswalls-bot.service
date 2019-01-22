@@ -1,0 +1,26 @@
+[Unit]
+Description=horbiswalls Telegram Bot service
+After=network.target
+
+[Service]
+Restart=on-abort
+Type=simple
+User=bot
+WorkingDirectory=/home/msfjarvis/walls-manager-master
+ExecStart=//home/msfjarvis/walls-manager-master/venv/bin/python bot.py
+ExecReload=/bin/kill -USR1 $MAINPID
+
+; Use graceful shutdown with a reasonable timeout
+KillMode=mixed
+KillSignal=SIGQUIT
+TimeoutStopSec=5s
+
+; Use private /tmp and /var/tmp, which are discarded after caddy stops.
+PrivateTmp=true
+; Use a minimal /dev (May bring additional security if switched to 'true', but it may not work on Raspberry Pi's or other devices, so it has been disabled in this dist.)
+PrivateDevices=false
+; Make /usr, /boot, /etc and possibly some more folders read-only.
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
