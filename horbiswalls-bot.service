@@ -6,8 +6,8 @@ After=network.target
 Restart=on-abort
 Type=simple
 User=bot
-WorkingDirectory=/home/msfjarvis/walls-manager-master
-ExecStart=//home/msfjarvis/walls-manager-master/venv/bin/python bot.py
+WorkingDirectory=/home/msfjarvis/walls-manager
+ExecStart=/home/msfjarvis/walls-manager/venv/bin/python bot.py
 ExecReload=/bin/kill -USR1 $MAINPID
 
 ; Use graceful shutdown with a reasonable timeout
