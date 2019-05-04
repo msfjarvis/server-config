@@ -7,7 +7,7 @@ Restart=on-abort
 Type=simple
 User=bot
 WorkingDirectory=/home/bot/mau_mau_bot
-ExecStart=/home/bot/mau_mau_bot/bot.py
+ExecStart=/home/bot/mau_mau_bot/venv/bin/python bot.py
 ExecReload=/bin/kill -USR1 $MAINPID
 
 ; Use graceful shutdown with a reasonable timeout
