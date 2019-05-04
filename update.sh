@@ -19,7 +19,7 @@ done < <(find . -name '*.service' -print0 | sed 's/\.\///g')
 
 # Place the systemd unit files where they belong
 reportWarning "Copying systemd files to /etc/systemd/system"
-for service in "${services[@]}"; do cp "${service}" /etc/systemd/system/; done
+for service in "${services[@]}"; do sudo cp "${service}" /etc/systemd/system/; done
 
 # Reload systemctl so that it processes our changes
 reportWarning "Reloading systemctl daemon"
@@ -27,7 +27,8 @@ sudo systemctl daemon-reload
 
 # Now loop through each service and restart it
 for service in "${services[@]}"; do
+    service="${service/.service/}"
     reportWarning "Restarting ${service}"
-    service "${service}" restart
-    [ -f "/etc/systemd/system/${service}.service" ] || systemctl enable "${service}"
+    sudo service "${service}" restart
+    [ -f "/etc/systemd/system/multi-user.target.wants/${service}.service" ] && sudo systemctl enable "${service}"
 done
