@@ -8,7 +8,7 @@ Type=simple
 User=msfjarvis
 WorkingDirectory=/home/msfjarvis/aria-telegram-mirror-bot
 ExecStartPre=/usr/bin/env bash aria.sh
-ExecStart=/usr/bin/npm --max_old_space_size=128 start
+ExecStart=/usr/bin/npm start
 ExecReload=/bin/kill -USR1 $MAINPID
 
 ; Use graceful shutdown with a reasonable timeout
