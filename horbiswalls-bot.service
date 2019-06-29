@@ -1,5 +1,5 @@
 [Unit]
-Description=horbiswalls Telegram Bot service
+Description=horbiswalls Telegram bot service
 After=network.target
 
 [Service]
@@ -15,7 +15,7 @@ KillMode=mixed
 KillSignal=SIGQUIT
 TimeoutStopSec=5s
 
-; Use private /tmp and /var/tmp, which are discarded after caddy stops.
+; Use private /tmp and /var/tmp, which are discarded after the process stops.
 PrivateTmp=true
 ; Use a minimal /dev (May bring additional security if switched to 'true', but it may not work on Raspberry Pi's or other devices, so it has been disabled in this dist.)
 PrivateDevices=false
