@@ -5,8 +5,8 @@ After=network.target
 [Service]
 Restart=on-abort
 Type=simple
-User=msfjarvis
-WorkingDirectory=/home/msfjarvis/aria-telegram-mirror-bot
+User=bot
+WorkingDirectory=/home/bot/aria-telegram-mirror-bot
 ExecStartPre=/usr/bin/env bash aria.sh
 ExecStart=/usr/bin/npm start
 ExecReload=/bin/kill -USR1 $MAINPID
