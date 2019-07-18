@@ -10,16 +10,14 @@ function prettyPrint {
 # Grab all service names
 declare -a services=('caddy' 'horbiswalls-bot' 'mirror-bot' 'uno-bot')
 
-# Place the systemd unit files where they belong
-prettyPrint "Copying systemd files to /etc/systemd/system"
-for service in "${services[@]}"; do sudo cp -v "${service}.service" /etc/systemd/system/; done
-
-# Reload systemctl so that it processes our changes
-prettyPrint "Reloading systemctl daemon"
-sudo systemctl daemon-reload
-
-# Now loop through each service and restart it
+# Now loop through each service and install it
 for service in "${services[@]}"; do
+    if [ "${1}" ] && [ "${service}" != "${1}" ]; then
+        continue
+    fi
+    prettyPrint "Installing ${service}"
+    sudo cp -v "${service}.service" /etc/systemd/system/
+    sudo systemctl daemon-reload
     prettyPrint "Restarting ${service}"
     sudo service "${service}" restart
     if [ ! -f "/etc/systemd/system/multi-user.target.wants/${service}.service" ]; then
