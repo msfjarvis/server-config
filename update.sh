@@ -8,7 +8,7 @@ function prettyPrint {
 }
 
 # Grab all service names
-declare -a services=('androidx-release-watcher' 'caddy' 'gitea' 'horbiswalls-bot' 'mirror-bot' 'uno-bot')
+declare -a services=('androidx-release-watcher' 'caddy' 'gitea' 'horbiswalls-bot' 'mirror-bot' 'uno-bot', 'walls-bot')
 declare -a timers=('release-watcher-recent')
 
 # Now loop through each service and install it
