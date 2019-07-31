@@ -1,0 +1,12 @@
+[Unit]
+Description=Run shopify-recent every 24 hours with a 30 minute leeway
+Requires=androidx-release-watcher.service
+
+[Timer]
+Unit=androidx-release-watcher.service
+OnUnitInactiveSec=24h
+RandomizedDelaySec=15m
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

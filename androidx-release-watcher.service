@@ -1,0 +1,10 @@
+[Unit]
+Description=Telegram notifier service for androidx-release-watcher
+Wants=release-watcher-recent.timer
+
+[Service]
+WorkingDirectory=/home/bot/androidx-release-watcher
+ExecStart=/home/bot/androidx-release-watcher/venv/bin/python telegram_notifier.py
+
+[Install]
+WantedBy=multi-user.target
