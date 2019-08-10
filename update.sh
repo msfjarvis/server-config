@@ -13,7 +13,7 @@ declare -a timers=('release-watcher-recent')
 
 # Now loop through each service and install it
 for service in "${services[@]}"; do
-    if [ "${1}" ] && [ "${service}" != "${1}" ]; then
+    if [ "${1}" ] && [[ "${service}" != "${1}" && "${service}.service" != "${1}" ]]; then
         continue
     fi
     prettyPrint "Installing ${service}"
@@ -28,7 +28,7 @@ for service in "${services[@]}"; do
 done
 
 for timer in "${timers[@]}"; do
-    if [ "${1}" ] && [ "${timer}" != "${1}" ]; then
+    if [ "${1}" ] && [[ "${timer}" != "${1}"  && "${timer}.timer" != "${1}" ]]; then
         continue
     fi
     prettyPrint "Installing ${timer}"
