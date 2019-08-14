@@ -8,8 +8,7 @@ function prettyPrint {
 }
 
 # Grab all service names
-declare -a services=('androidx-release-watcher' 'caddy' 'gitea' 'horbiswalls-bot' 'mirror-bot' 'mirror-bot-2' 'uno-bot' 'walls-bot' 'walls-bot-2')
-declare -a timers=('release-watcher-recent')
+declare -a services=('caddy' 'gitea' 'horbiswalls-bot' 'mirror-bot' 'mirror-bot-2' 'uno-bot' 'walls-bot' 'walls-bot-2')
 
 # Now loop through each service and install it
 for service in "${services[@]}"; do
@@ -24,20 +23,5 @@ for service in "${services[@]}"; do
     if [ ! -f "/etc/systemd/system/multi-user.target.wants/${service}.service" ]; then
         prettyPrint "Enabling ${service}"
         sudo systemctl enable "${service}"
-    fi
-done
-
-for timer in "${timers[@]}"; do
-    if [ "${1}" ] && [[ "${timer}" != "${1}"  && "${timer}.timer" != "${1}" ]]; then
-        continue
-    fi
-    prettyPrint "Installing ${timer}"
-    sudo cp -v "${timer}.timer" /etc/systemd/system/
-    sudo systemctl daemon-reload
-    prettyPrint "Restarting ${timer}"
-    sudo systemctl restart "${timer}".timer
-    if [ ! -f "/etc/systemd/system/multi-user.target.wants/${timer}.timer" ]; then
-        prettyPrint "Enabling ${timer}"
-        sudo systemctl enable "${timer}".timer
     fi
 done
