@@ -60,8 +60,3 @@ https://wallabag.msfjarvis.website {
         import proxy_config
     }
 }
-
-https://nathanchance.me {
-    redir https://nathanchance.dev{uri}
-    import base_config
-}
