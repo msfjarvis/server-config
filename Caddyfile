@@ -1,0 +1,67 @@
+(base_config) {
+    gzip
+    tls {
+        dns cloudflare
+    }
+}
+
+(proxy_config) {
+    try_duration 5s
+    transparent
+}
+
+https://msfjarvis.website {
+    import base_config
+    root /var/www/msfjarvis.website/
+    git {
+        repo https://github.com/msfjarvis/msfjarvis.website
+        branch src
+        path ../site_raw
+        hook /githook {$WEBHOOK_PASSWORD}
+        then git submodule update --init --recursive
+        then hugo --destination=/var/www/msfjarvis.website
+    }
+}
+
+https://build.msfjarvis.website {
+    import base_config
+    proxy / http://localhost:8080 {
+        import proxy_config
+    }
+}
+
+https://docker.msfjarvis.website {
+    import base_config
+    proxy / http://localhost:9000 {
+        import proxy_config
+    }
+}
+
+https://download.msfjarvis.website {
+    import base_config
+    root /var/www/download.msfjarvis.website
+    fastcgi / /run/php/php7.2-fpm.sock php
+    rewrite {
+        if {path} ends_with /
+        to {dir}/index.html {dir}/index.php /_h5ai/public/index.php
+    }
+}
+
+https://git.msfjarvis.website {
+    import base_config
+    proxy / http://localhost:3000 {
+        import proxy_config
+    }
+}
+
+https://wallabag.msfjarvis.website {
+    import base_config
+    proxy / http://localhost:8081 {
+        import proxy_config
+    }
+}
+
+https://nathanchance.me {
+    redir https://nathanchance.dev{uri}
+    import base_config
+}
