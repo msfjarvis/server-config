@@ -1,5 +1,5 @@
 [Unit]
-Description=horbiswalls Telegram bot service
+Description=Desktop walls bot service
 After=network.target
 
 [Service]

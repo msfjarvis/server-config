@@ -1,5 +1,5 @@
 [Unit]
-Description=aria2 mirror Telegram bot service
+Description=Public mirror bot service
 After=network.target
 
 [Service]
