@@ -62,10 +62,3 @@ https://git.msfjarvis.website {
         import proxy_config
     }
 }
-
-https://wallabag.msfjarvis.website {
-    import base_config
-    proxy / http://localhost:8081 {
-        import proxy_config
-    }
-}
