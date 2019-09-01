@@ -22,6 +22,10 @@
 https://msfjarvis.website {
     import base_config
     root /var/www/msfjarvis.website/
+    redir 307 {
+        /github https://github.com/msfjarvis
+        /brave https://brave.com/msf756
+    }
     git {
         repo https://github.com/msfjarvis/msfjarvis.website
         branch src
