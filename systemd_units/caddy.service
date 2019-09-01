@@ -9,7 +9,7 @@ Restart=on-abnormal
 User=caddy
 Group=caddy
 Environment=CADDYPATH=/etc/ssl/caddy
-ExecStart=/usr/local/bin/caddy -log stdout -agree=true -conf=/etc/caddy/Caddyfile -root=/var/tmp -envfile /etc/caddy/env
+ExecStart=/usr/local/bin/caddy -log stdout -agree=true -email msfjarvis@gmail.com -conf=/etc/caddy/Caddyfile -root=/var/tmp -envfile /etc/caddy/env
 ExecReload=/bin/kill -USR1 $MAINPID
 KillMode=mixed
 KillSignal=SIGQUIT
