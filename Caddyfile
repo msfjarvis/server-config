@@ -69,7 +69,7 @@ https://download.msfjarvis.website {
 https://git.msfjarvis.website {
     import base_config
     import compression_config
-    proxy / http://localhost:3000 {
+    proxy / http://localhost:8000 {
         import proxy_config
     }
 }
