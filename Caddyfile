@@ -1,5 +1,8 @@
-(base_config) {
+(compression_config) {
     gzip
+}
+
+(base_config) {
     tls {
         dns cloudflare
     }
@@ -21,6 +24,7 @@
 
 https://msfjarvis.website {
     import base_config
+    import compression_config
     root /var/www/msfjarvis.website/
     redir 307 {
         /github https://github.com/msfjarvis
@@ -38,6 +42,7 @@ https://msfjarvis.website {
 
 https://build.msfjarvis.website {
     import base_config
+    import compression_config
     proxy / http://localhost:8080 {
         import proxy_config
     }
@@ -45,6 +50,7 @@ https://build.msfjarvis.website {
 
 https://docker.msfjarvis.website {
     import base_config
+    import compression_config
     proxy / http://localhost:9000 {
         import proxy_config
     }
@@ -62,6 +68,7 @@ https://download.msfjarvis.website {
 
 https://git.msfjarvis.website {
     import base_config
+    import compression_config
     proxy / http://localhost:3000 {
         import proxy_config
     }
