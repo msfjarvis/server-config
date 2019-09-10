@@ -15,6 +15,10 @@ TimeoutStopSec=5s
 PrivateTmp=true
 PrivateDevices=false
 ProtectSystem=full
+CPUWeight=10
+CPUQuota=10%
+IOWeight=20
+MemorySwapMax=0
 
 [Install]
 WantedBy=multi-user.target
