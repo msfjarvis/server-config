@@ -19,7 +19,7 @@ ProtectSystem=full
 CPUWeight=10
 CPUQuota=10%
 IOWeight=20
-MemorySwapMax=0
+MemorySwapMax=1
 
 [Install]
 WantedBy=multi-user.target

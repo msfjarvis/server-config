@@ -20,7 +20,7 @@ AmbientCapabilities=CAP_NET_BIND_SERVICE
 CPUWeight=20
 CPUQuota=25%
 IOWeight=20
-MemorySwapMax=0
+MemorySwapMax=1
 
 [Install]
 WantedBy=multi-user.target
