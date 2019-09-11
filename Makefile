@@ -7,7 +7,7 @@ caddy:
 	@cp -v $(CADDYFILE_DEST) $(CADDYFILE_DEST).old
 	@cp -v Caddyfile $(CADDYFILE_DEST)
 
-caddyinstall:
+caddyinstall: caddy
 	systemctl restart caddy
 
-.DEFAULT: caddy
+.DEFAULT_GOAL := caddyinstall
