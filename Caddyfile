@@ -38,7 +38,6 @@ https://msfjarvis.website {
         then git submodule update --init --recursive
         then hugo --destination=/var/www/msfjarvis.website
     }
-    minify /js
 }
 
 https://build.msfjarvis.website {
