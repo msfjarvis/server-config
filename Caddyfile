@@ -36,7 +36,7 @@ https://msfjarvis.website {
         path ../site_raw
         hook /githook {$WEBHOOK_PASSWORD}
         then git submodule update --init --recursive
-        then hugo --destination=/var/www/msfjarvis.website
+        then hugo --destination=/var/www/msfjarvis.website --minify
     }
 }
 
