@@ -35,7 +35,6 @@ https://msfjarvis.website {
         branch src
         path ../site_raw
         hook /githook {$WEBHOOK_PASSWORD}
-        then git submodule update --init --recursive
         then hugo --destination=/var/www/msfjarvis.website --minify
     }
 }
@@ -83,7 +82,6 @@ https://staging.msfjarvis.website {
         branch src
         path ../site_raw_staging
         hook /githook {$WEBHOOK_PASSWORD}
-        then git submodule update --init --recursive
         then hugo --destination=/var/www/msfjarvis.website.staging --minify -DEFb=https://staging.msfjarvis.website
     }
 }
