@@ -10,4 +10,4 @@ Configuration files for various parts of my webserver
   - [gitea.service](systemd_units/gitea.service): Gitea systemd unit for [git.msfjarvis.website](https://git.msfjarvis.website).
   - [mirror-bot.service](systemd_units/mirror-bot.service), [mirror-bot-2.service](systemd_units/mirror-bot-2.service): Systemd units for my copies of [aria-telegram-mirror-bot](https://github.com/out386/aria-telegram-mirror-bot).
   - [uno-bot.service](systemd_units/uno-bot.service): Unit for the [UNO telegram bot](https://github.com/msfjarvis/mau_mau_bot) I host.
-  - [walls-bot.service](systemd_units/walls-bot.service), [walls-bot-2.service](systemd_units/walls-bot-2.service): Units for the [walls-bot](https://github.com/msfjarvis/walls-bot) instances I run for my desktop and phone walls collections.
+  - [walls-bot.service](systemd_units/walls-bot.service): Units for the [walls-bot](https://github.com/msfjarvis/walls-bot) instances I run for my desktop walls collections.
