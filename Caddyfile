@@ -85,3 +85,11 @@ https://staging.msfjarvis.website {
         then hugo --destination=/var/www/msfjarvis.website.staging --minify -DEFb=https://staging.msfjarvis.website
     }
 }
+
+https://stats.msfjarvis.website {
+    import base_config
+    import compression_config
+    proxy / http://localhost:8081 {
+        import proxy_config
+    }
+}
