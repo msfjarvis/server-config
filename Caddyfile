@@ -81,7 +81,7 @@ https://staging.msfjarvis.website {
         repo https://github.com/msfjarvis/msfjarvis.website
         branch src
         path ../site_raw_staging
-        hook /githook {$WEBHOOK_PASSWORD}
+        hook /githook_staging {$WEBHOOK_PASSWORD_STAGING}
         then hugo --destination=/var/www/msfjarvis.website.staging --minify -DEFb=https://staging.msfjarvis.website
     }
 }
