@@ -1,0 +1,21 @@
+[Unit]
+Description=daas: demangle-as-a-service
+After=syslog.target
+After=network.target
+
+[Service]
+LimitMEMLOCK=infinity
+LimitNOFILE=65535
+RestartSec=2s
+Type=simple
+User=caddy
+Group=caddy
+ExecStart=/usr/local/bin/daas
+Restart=always
+CPUWeight=2
+CPUQuota=2%
+IOWeight=2
+MemorySwapMax=1
+
+[Install]
+WantedBy=multi-user.target

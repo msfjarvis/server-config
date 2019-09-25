@@ -47,6 +47,14 @@ https://build.msfjarvis.website {
     }
 }
 
+https://daas.msfjarvis.website {
+    import base_config
+    import compression_config
+    proxy / http://localhost:8082 {
+        import proxy_config
+    }
+}
+
 https://docker.msfjarvis.website {
     import base_config
     import compression_config
