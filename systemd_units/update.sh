@@ -18,7 +18,7 @@ for service in "${services[@]}"; do
     prettyPrint "Installing ${service}"
     sudo cp -v "${service}.service" /etc/systemd/system/
     sudo systemctl daemon-reload
-    if [ "${NO_RESTART}" = false ]; then
+    if [ -z "${NO_RESTART}" ]; then
         prettyPrint "Restarting ${service}"
         sudo systemctl restart "${service}"
         if [ ! -f "/etc/systemd/system/multi-user.target.wants/${service}.service" ]; then
