@@ -33,6 +33,9 @@ https://msfjarvis.website {
         hook /githook {$WEBHOOK_PASSWORD}
         then hugo --destination=/var/www/msfjarvis.website --minify
     }
+    header / {
+        Cache-Control "max-age=2592000"
+    }
 }
 
 https://build.msfjarvis.website {
