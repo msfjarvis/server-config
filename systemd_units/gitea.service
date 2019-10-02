@@ -17,10 +17,6 @@ Restart=always
 Environment=USER=git HOME=/home/git GITEA_WORK_DIR=/var/lib/gitea
 CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_BIND_SERVICE
-CPUWeight=20
-CPUQuota=25%
-IOWeight=20
-MemorySwapMax=1
 
 [Install]
 WantedBy=multi-user.target

@@ -12,10 +12,6 @@ User=caddy
 Group=caddy
 ExecStart=/usr/local/bin/daas
 Restart=always
-CPUWeight=2
-CPUQuota=2%
-IOWeight=2
-MemorySwapMax=1
 
 [Install]
 WantedBy=multi-user.target
