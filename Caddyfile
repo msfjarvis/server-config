@@ -54,6 +54,16 @@ https://daas.msfjarvis.website {
     }
 }
 
+https://dl.msfjarvis.website {
+    import base_config
+    root /var/www/download.msfjarvis.website
+    fastcgi / /run/php/php7.2-fpm.sock php
+    rewrite {
+        if {path} ends_with /
+        to {dir}/index.html {dir}/index.php /_h5ai/public/index.php
+    }
+}
+
 https://docker.msfjarvis.website {
     import base_config
     import compression_config
@@ -64,12 +74,7 @@ https://docker.msfjarvis.website {
 
 https://download.msfjarvis.website {
     import base_config
-    root /var/www/download.msfjarvis.website
-    fastcgi / /run/php/php7.2-fpm.sock php
-    rewrite {
-        if {path} ends_with /
-        to {dir}/index.html {dir}/index.php /_h5ai/public/index.php
-    }
+    redir https://dl.msfjarvis.website{uri}
 }
 
 https://git.msfjarvis.website {
