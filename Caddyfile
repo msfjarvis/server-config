@@ -26,13 +26,6 @@ https://msfjarvis.website {
     import base_config
     import compression_config
     root /var/www/msfjarvis.website/
-    git {
-        repo https://github.com/msfjarvis/msfjarvis.website
-        branch src
-        path ../site_raw
-        hook /githook {$WEBHOOK_PASSWORD}
-        then hugo --destination=/var/www/msfjarvis.website --minify
-    }
     header / {
         Cache-Control "max-age=2592000"
     }
@@ -89,11 +82,4 @@ https://staging.msfjarvis.website {
     import base_config
     import compression_config
     root /var/www/msfjarvis.website.staging/
-    git {
-        repo https://github.com/msfjarvis/msfjarvis.website
-        branch src
-        path ../site_raw_staging
-        hook /githook_staging {$WEBHOOK_PASSWORD_STAGING}
-        then hugo --destination=/var/www/msfjarvis.website.staging --minify -DEFb=https://staging.msfjarvis.website
-    }
 }
