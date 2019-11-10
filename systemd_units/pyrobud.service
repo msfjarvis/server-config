@@ -1,0 +1,20 @@
+[Unit]
+Description=Pyrobud Telegram userbot service
+After=network.target
+
+[Service]
+Restart=on-abort
+Type=simple
+User=bot
+WorkingDirectory=/home/bot/pyrobud
+ExecStart=/home/bot/pyrobud/venv/bin/python main.py
+ExecReload=/bin/kill -USR1 $MAINPID
+KillMode=mixed
+KillSignal=SIGQUIT
+TimeoutStopSec=5s
+PrivateTmp=true
+PrivateDevices=false
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
