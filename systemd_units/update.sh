@@ -15,6 +15,8 @@ for service in "${services[@]}"; do
     if [ "${1}" ] && [[ "${service}" != "${1}" && "${service}.service" != "${1}" ]]; then
         continue
     fi
+    prettyPrint "Checking root access"
+    sudo -v || return 1
     prettyPrint "Installing ${service}"
     sudo cp -v "${service}.service" /etc/systemd/system/
     sudo systemctl daemon-reload
