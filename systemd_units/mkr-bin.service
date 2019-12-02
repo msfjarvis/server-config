@@ -1,0 +1,22 @@
+[Unit]
+Description=mkr/bin service
+After=network.target
+
+[Service]
+Restart=on-abort
+Type=simple
+User=bot
+Group=bot
+Environment=BIN_MONGO_CSTRING=mongodb://localhost:27017/bin-store BIN_PORT=4000
+WorkingDirectory=/home/bot/bin
+ExecStart=/usr/bin/npm start
+ExecReload=/bin/kill -USR1 $MAINPID
+KillMode=mixed
+KillSignal=SIGQUIT
+TimeoutStopSec=5s
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
