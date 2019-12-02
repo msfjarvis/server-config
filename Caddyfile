@@ -36,6 +36,14 @@ https://msfjarvis.website {
     }
 }
 
+https://bin.msfjarvis.website {
+    import base_config
+    import compression_config
+    proxy / http://localhost:4000 {
+        import proxy_config
+    }
+}
+
 https://build.msfjarvis.website {
     import base_config
     import compression_config
