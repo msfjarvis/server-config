@@ -14,6 +14,7 @@
         X-Frame-Options "SAMEORIGIN"
         Feature-Policy "accelerometer 'none';ambient-light-sensor 'none'; autoplay 'none';camera 'none';encrypted-media 'none'; geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';midi 'none';payment 'none';picture-in-picture 'none'; speaker 'none';sync-xhr 'none';usb 'none';vr 'none'"
         Referrer-Policy "no-referrer"
+        Cache-Control 'max-age=604800,stale-while-revalidate=10'
     }
 }
 
@@ -31,9 +32,6 @@ https://msfjarvis.website {
     import base_config
     import compression_config
     root /var/www/msfjarvis.website/
-    header / {
-        Cache-Control "no-cache"
-    }
 }
 
 https://bin.msfjarvis.website {
@@ -95,7 +93,4 @@ https://staging.msfjarvis.website {
     import base_config
     import compression_config
     root /var/www/msfjarvis.website.staging/
-    header / {
-        Cache-Control "no-cache"
-    }
 }
