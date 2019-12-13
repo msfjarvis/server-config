@@ -23,18 +23,18 @@
     transparent
 }
 
-https://www.msfjarvis.website {
+https://www.msfjarvis.dev {
     import base_config
-    redir https://msfjarvis.website{uri}
+    redir https://msfjarvis.dev{uri}
 }
 
-https://msfjarvis.website {
+https://msfjarvis.dev {
     import base_config
     import compression_config
     root /var/www/msfjarvis.website/
 }
 
-https://bin.msfjarvis.website {
+https://bin.msfjarvis.dev {
     import base_config
     import compression_config
     proxy / http://localhost:4000 {
@@ -42,7 +42,7 @@ https://bin.msfjarvis.website {
     }
 }
 
-https://build.msfjarvis.website {
+https://build.msfjarvis.dev {
     import base_config
     import compression_config
     proxy / http://localhost:8080 {
@@ -50,7 +50,7 @@ https://build.msfjarvis.website {
     }
 }
 
-https://daas.msfjarvis.website {
+https://daas.msfjarvis.dev {
     import base_config
     import compression_config
     proxy / http://localhost:8082 {
@@ -58,7 +58,7 @@ https://daas.msfjarvis.website {
     }
 }
 
-https://dl.msfjarvis.website {
+https://dl.msfjarvis.dev {
     import base_config
     root /var/www/download.msfjarvis.website
     fastcgi / /run/php/php7.2-fpm.sock php
@@ -68,7 +68,7 @@ https://dl.msfjarvis.website {
     }
 }
 
-https://docker.msfjarvis.website {
+https://docker.msfjarvis.dev {
     import base_config
     import compression_config
     proxy / http://localhost:9000 {
@@ -78,10 +78,10 @@ https://docker.msfjarvis.website {
 
 https://download.msfjarvis.website {
     import base_config
-    redir https://dl.msfjarvis.website{uri}
+    redir https://dl.msfjarvis.dev{uri}
 }
 
-https://git.msfjarvis.website {
+https://git.msfjarvis.dev {
     import base_config
     import compression_config
     proxy / http://localhost:8000 {
@@ -89,8 +89,53 @@ https://git.msfjarvis.website {
     }
 }
 
-https://staging.msfjarvis.website {
+https://staging.msfjarvis.dev {
     import base_config
     import compression_config
     root /var/www/msfjarvis.website.staging/
+}
+
+https://www.msfjarvis.website {
+    import base_config
+    redir https://msfjarvis.dev{uri}
+}
+
+https://msfjarvis.website {
+    import base_config
+    redir https://msfjarvis.dev{uri}
+}
+
+https://bin.msfjarvis.website {
+    import base_config
+    redir https://bin.msfjarvis.dev{uri}
+}
+
+https://build.msfjarvis.website {
+    import base_config
+    redir https://build.msfjarvis.dev{uri}
+}
+
+https://daas.msfjarvis.website {
+    import base_config
+    redir https://daas.msfjarvis.dev{uri}
+}
+
+https://dl.msfjarvis.website {
+    import base_config
+    redir https://dl.msfjarvis.dev{uri}
+}
+
+https://docker.msfjarvis.website {
+    import base_config
+    redir https://docker.msfjarvis.dev{uri}
+}
+
+https://git.msfjarvis.website {
+    import base_config
+    redir https://git.msfjarvis.dev{uri}
+}
+
+https://staging.msfjarvis.website {
+    import base_config
+    redir https://staging.msfjarvis.dev{uri}
 }
