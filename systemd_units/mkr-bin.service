@@ -7,7 +7,7 @@ Restart=on-abort
 Type=simple
 User=bot
 Group=bot
-Environment=BIN_MONGO_CSTRING=mongodb://localhost:27017/bin-store BIN_PORT=4000
+Environment=BIN_MONGO_CSTRING=mongodb://localhost:27017/bin-store BIN_PORT=8080
 WorkingDirectory=/home/bot/bin
 ExecStart=/usr/bin/npm start
 ExecReload=/bin/kill -USR1 $MAINPID
