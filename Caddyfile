@@ -42,14 +42,6 @@ https://bin.msfjarvis.dev {
     }
 }
 
-https://build.msfjarvis.dev {
-    import base_config
-    import compression_config
-    proxy / http://localhost:8081 {
-        import proxy_config
-    }
-}
-
 https://daas.msfjarvis.dev {
     import base_config
     import compression_config
@@ -108,11 +100,6 @@ https://msfjarvis.website {
 https://bin.msfjarvis.website {
     import base_config
     redir https://bin.msfjarvis.dev{uri}
-}
-
-https://build.msfjarvis.website {
-    import base_config
-    redir https://build.msfjarvis.dev{uri}
 }
 
 https://daas.msfjarvis.website {
