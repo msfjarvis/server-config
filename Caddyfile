@@ -37,7 +37,7 @@ https://msfjarvis.dev {
 https://bin.msfjarvis.dev {
     import base_config
     import compression_config
-    proxy / http://localhost:4000 {
+    proxy / http://localhost:8080 {
         import proxy_config
     }
 }
@@ -45,7 +45,7 @@ https://bin.msfjarvis.dev {
 https://build.msfjarvis.dev {
     import base_config
     import compression_config
-    proxy / http://localhost:8080 {
+    proxy / http://localhost:8081 {
         import proxy_config
     }
 }
@@ -71,7 +71,7 @@ https://dl.msfjarvis.dev {
 https://docker.msfjarvis.dev {
     import base_config
     import compression_config
-    proxy / http://localhost:9000 {
+    proxy / http://localhost:8083 {
         import proxy_config
     }
 }
@@ -84,7 +84,7 @@ https://download.msfjarvis.website {
 https://git.msfjarvis.dev {
     import base_config
     import compression_config
-    proxy / http://localhost:8000 {
+    proxy / http://localhost:8084 {
         import proxy_config
     }
 }
