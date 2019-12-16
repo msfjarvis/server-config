@@ -32,6 +32,7 @@ https://msfjarvis.dev {
     import base_config
     import compression_config
     root /var/www/msfjarvis.website/
+    log / /etc/logs/requests.log
 }
 
 https://bin.msfjarvis.dev {
@@ -85,6 +86,12 @@ https://staging.msfjarvis.dev {
     import base_config
     import compression_config
     root /var/www/msfjarvis.website.staging/
+}
+
+https://stats.msfjarvis.dev {
+    import base_config
+    import compression_config
+    root /var/www/stats.msfjarvis.website/
 }
 
 https://www.msfjarvis.website {
