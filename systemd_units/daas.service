@@ -12,6 +12,10 @@ User=caddy
 Group=caddy
 ExecStart=/usr/local/bin/daas
 Restart=always
+PrivateTmp=true
+PrivateDevices=true
+ProtectHome=true
+ProtectSystem=full
 
 [Install]
 WantedBy=multi-user.target

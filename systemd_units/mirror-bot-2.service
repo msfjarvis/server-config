@@ -15,7 +15,6 @@ KillSignal=SIGQUIT
 TimeoutStopSec=5s
 PrivateTmp=true
 PrivateDevices=true
-ProtectSystem=full
 
 [Install]
 WantedBy=multi-user.target
