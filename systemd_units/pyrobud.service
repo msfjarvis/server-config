@@ -1,20 +1,35 @@
 [Unit]
-Description=Pyrobud Telegram userbot service
-After=network.target
+Description=Pyrobud Telegram selfbot
+After=multi-user.target
 
 [Service]
-Restart=on-abort
+# Base settings
 Type=simple
-User=bot
-WorkingDirectory=/home/bot/pyrobud
-ExecStart=/home/bot/pyrobud/venv/bin/python main.py
-ExecReload=/bin/kill -USR1 $MAINPID
-KillMode=mixed
-KillSignal=SIGQUIT
-TimeoutStopSec=5s
+Restart=always
+RestartSec=10
+
+# Execution parameters
+User=pyrobud
+Group=pyrobud
+WorkingDirectory=/home/pyrobud/pyrobud
+ExecStart=/home/pyrobud/venv/bin/python -O /home/pyrobud/pyrobud/main.py
+
+# Limit damage in case something goes awry
+MemoryLimit=256M
+CPUQuota=200%
+
+# Security
 PrivateTmp=true
-PrivateDevices=false
 ProtectSystem=full
+NoNewPrivileges=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+PrivateDevices=true
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+SystemCallArchitectures=native
 
 [Install]
 WantedBy=multi-user.target
