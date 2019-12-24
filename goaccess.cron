@@ -1,1 +1,0 @@
-*/5 * * * * /usr/bin/goaccess /etc/logs/requests.log --log-format=VCOMMON -o /var/www/stats.msfjarvis.website/index.html --no-query-string --anonymize-ip --double-decode --real-os --compression=zlib 1>/etc/logs/crontab.log 2>&1
