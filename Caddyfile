@@ -94,6 +94,13 @@ https://stats.msfjarvis.dev {
     root /var/www/stats.msfjarvis.website/
 }
 
+https://stats.msfjarvis.dev/ws {
+    import base_config
+    proxy / localhost:7890 {
+       websocket
+    }
+}
+
 https://www.msfjarvis.website {
     import base_config
     redir https://msfjarvis.dev{uri}
