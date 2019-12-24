@@ -1,0 +1,21 @@
+[Unit]
+Description=goaccess: real-time web log analyzer
+After=syslog.target
+After=network.target
+
+[Service]
+LimitMEMLOCK=infinity
+LimitNOFILE=65535
+RestartSec=2s
+Type=simple
+User=caddy
+Group=caddy
+ExecStart=/usr/bin/goaccess --log-format=VCOMMON --ws-url=wss://stats.msfjarvis.dev/ws --output=/var/www/stats.msfjarvis.website/index.html --log-file=/etc/logs/requests.log --no-query-string --anonymize-ip --double-decode --real-os --compression=zlib --real-time-html
+Restart=always
+PrivateTmp=true
+PrivateDevices=true
+ProtectHome=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
