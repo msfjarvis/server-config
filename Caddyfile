@@ -77,6 +77,14 @@ https://git.msfjarvis.dev {
     }
 }
 
+https://nextcloud.msfjarvis.dev {
+    import base_config
+    import compression_config
+    proxy / http://localhost:8085 {
+        import proxy_config
+    }
+}
+
 https://staging.msfjarvis.dev {
     import base_config
     import compression_config
