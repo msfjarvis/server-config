@@ -69,11 +69,6 @@ https://docker.msfjarvis.dev {
     }
 }
 
-https://download.msfjarvis.website {
-    import base_config
-    redir https://dl.msfjarvis.dev{uri}
-}
-
 https://git.msfjarvis.dev {
     import base_config
     import compression_config
@@ -119,6 +114,11 @@ https://bin.msfjarvis.website {
 https://daas.msfjarvis.website {
     import base_config
     redir https://daas.msfjarvis.dev{uri}
+}
+
+https://download.msfjarvis.website {
+    import base_config
+    redir https://dl.msfjarvis.dev{uri}
 }
 
 https://dl.msfjarvis.website {
