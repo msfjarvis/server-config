@@ -31,7 +31,7 @@ https://www.msfjarvis.dev {
 https://msfjarvis.dev {
     import base_config
     import compression_config
-    root /var/www/msfjarvis.website/
+    root /var/www/msfjarvis.dev/
     log / /etc/logs/requests.log
 }
 
@@ -53,7 +53,7 @@ https://daas.msfjarvis.dev {
 
 https://dl.msfjarvis.dev {
     import base_config
-    root /var/www/download.msfjarvis.website
+    root /var/www/dl.msfjarvis.dev
     fastcgi / /run/php/php7.2-fpm.sock php
     rewrite {
         if {path} ends_with /
@@ -88,13 +88,13 @@ https://nextcloud.msfjarvis.dev {
 https://staging.msfjarvis.dev {
     import base_config
     import compression_config
-    root /var/www/msfjarvis.website.staging/
+    root /var/www/staging.msfjarvis.dev/
 }
 
 https://stats.msfjarvis.dev {
     import base_config
     import compression_config
-    root /var/www/stats.msfjarvis.website/
+    root /var/www/stats.msfjarvis.dev/
 }
 
 https://stats.msfjarvis.dev/ws {
