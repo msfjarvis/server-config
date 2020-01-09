@@ -12,10 +12,20 @@ User=caddy
 Group=caddy
 ExecStart=/usr/local/bin/daas
 Restart=always
+
+# Security
 PrivateTmp=true
-PrivateDevices=true
-ProtectHome=true
 ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+PrivateDevices=true
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+SystemCallArchitectures=native
 
 [Install]
 WantedBy=multi-user.target

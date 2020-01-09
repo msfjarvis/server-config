@@ -12,10 +12,20 @@ User=caddy
 Group=caddy
 ExecStart=/usr/bin/goaccess --log-format=VCOMMON --ws-url=wss://stats.msfjarvis.dev/ws --output=/var/www/stats.msfjarvis.dev/index.html --log-file=/etc/logs/requests.log --no-query-string --anonymize-ip --double-decode --real-os --compression=zlib --real-time-html
 Restart=always
+
+# Security
 PrivateTmp=true
-PrivateDevices=true
-ProtectHome=true
 ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+PrivateDevices=true
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+SystemCallArchitectures=native
 
 [Install]
 WantedBy=multi-user.target

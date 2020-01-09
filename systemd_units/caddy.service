@@ -16,14 +16,23 @@ KillSignal=SIGQUIT
 TimeoutStopSec=5s
 LimitNOFILE=1048576
 LimitNPROC=512
-PrivateTmp=true
-PrivateDevices=true
-ProtectHome=true
-ProtectSystem=full
 ReadWriteDirectories=/etc/ssl/caddy /etc/logs
 CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+# Security
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
 NoNewPrivileges=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+PrivateDevices=true
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+SystemCallArchitectures=native
 
 [Install]
 WantedBy=multi-user.target
