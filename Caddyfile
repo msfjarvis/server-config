@@ -33,6 +33,9 @@ https://msfjarvis.dev {
     import compression_config
     root /var/www/msfjarvis.dev/
     log / /etc/logs/requests.log
+    errors {
+        404 404.html
+    }
 }
 
 https://bin.msfjarvis.dev {
@@ -89,6 +92,9 @@ https://staging.msfjarvis.dev {
     import base_config
     import compression_config
     root /var/www/staging.msfjarvis.dev/
+    errors {
+        404 404.html
+    }
 }
 
 https://stats.msfjarvis.dev {
