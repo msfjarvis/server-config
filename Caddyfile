@@ -36,6 +36,11 @@ https://msfjarvis.dev {
     errors {
         404 404.html
     }
+    redir 301 {
+        /caesium-stable https://dl.msfjarvis.dev/caesium/wahoo/stable/updater.json
+        /caesium-beta https://dl.msfjarvis.dev/caesium/wahoo/beta/updater.json
+        /caesium-alpha https://dl.msfjarvis.dev/caesium/wahoo/alpha/updater.json
+    }
 }
 
 https://bin.msfjarvis.dev {
