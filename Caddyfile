@@ -51,6 +51,14 @@ https://bin.msfjarvis.dev {
     }
 }
 
+https://commento.msfjarvis.dev {
+    import base_config
+    import compression_config
+    proxy / http://localhost:8086 {
+        import proxy_config
+    }
+}
+
 https://daas.msfjarvis.dev {
     import base_config
     import compression_config
