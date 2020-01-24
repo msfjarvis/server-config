@@ -59,14 +59,6 @@ https://commento.msfjarvis.dev {
     }
 }
 
-https://daas.msfjarvis.dev {
-    import base_config
-    import compression_config
-    proxy / http://localhost:8082 {
-        import proxy_config
-    }
-}
-
 https://dl.msfjarvis.dev {
     import base_config
     root /var/www/dl.msfjarvis.dev
@@ -81,22 +73,6 @@ https://docker.msfjarvis.dev {
     import base_config
     import compression_config
     proxy / http://localhost:8083 {
-        import proxy_config
-    }
-}
-
-https://git.msfjarvis.dev {
-    import base_config
-    import compression_config
-    proxy / http://localhost:8084 {
-        import proxy_config
-    }
-}
-
-https://nextcloud.msfjarvis.dev {
-    import base_config
-    import compression_config
-    proxy / http://localhost:8085 {
         import proxy_config
     }
 }
@@ -138,11 +114,6 @@ https://bin.msfjarvis.website {
     redir https://bin.msfjarvis.dev{uri}
 }
 
-https://daas.msfjarvis.website {
-    import base_config
-    redir https://daas.msfjarvis.dev{uri}
-}
-
 https://download.msfjarvis.website {
     import base_config
     redir https://dl.msfjarvis.dev{uri}
@@ -156,11 +127,6 @@ https://dl.msfjarvis.website {
 https://docker.msfjarvis.website {
     import base_config
     redir https://docker.msfjarvis.dev{uri}
-}
-
-https://git.msfjarvis.website {
-    import base_config
-    redir https://git.msfjarvis.dev{uri}
 }
 
 https://staging.msfjarvis.website {
