@@ -70,14 +70,6 @@ https://dl.msfjarvis.dev {
     }
 }
 
-https://docker.msfjarvis.dev {
-    import base_config
-    import compression_config
-    proxy / http://localhost:8083 {
-        import proxy_config
-    }
-}
-
 https://staging.msfjarvis.dev {
     import base_config
     import compression_config
@@ -123,11 +115,6 @@ https://download.msfjarvis.website {
 https://dl.msfjarvis.website {
     import base_config
     redir https://dl.msfjarvis.dev{uri}
-}
-
-https://docker.msfjarvis.website {
-    import base_config
-    redir https://docker.msfjarvis.dev{uri}
 }
 
 https://staging.msfjarvis.website {
