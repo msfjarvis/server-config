@@ -24,7 +24,7 @@
     transparent
 }
 
-https://www.msfjarvis.dev {
+https://www.msfjarvis.dev, https://msfjarvis.website, https://www.msfjarvis.website {
     import base_config
     redir https://msfjarvis.dev{uri}
 }
@@ -92,27 +92,12 @@ https://stats.msfjarvis.dev/ws {
     }
 }
 
-https://www.msfjarvis.website {
-    import base_config
-    redir https://msfjarvis.dev{uri}
-}
-
-https://msfjarvis.website {
-    import base_config
-    redir https://msfjarvis.dev{uri}
-}
-
 https://bin.msfjarvis.website {
     import base_config
     redir https://bin.msfjarvis.dev{uri}
 }
 
-https://download.msfjarvis.website {
-    import base_config
-    redir https://dl.msfjarvis.dev{uri}
-}
-
-https://dl.msfjarvis.website {
+https://download.msfjarvis.website, https://dl.msfjarvis.website {
     import base_config
     redir https://dl.msfjarvis.dev{uri}
 }
