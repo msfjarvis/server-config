@@ -44,14 +44,6 @@ https://msfjarvis.dev {
     }
 }
 
-https://bin.msfjarvis.dev {
-    import base_config
-    import compression_config
-    proxy / http://localhost:8080 {
-        import proxy_config
-    }
-}
-
 https://commento.msfjarvis.dev {
     import base_config
     import compression_config
@@ -90,11 +82,6 @@ https://stats.msfjarvis.dev/ws {
     proxy / localhost:7890 {
        websocket
     }
-}
-
-https://bin.msfjarvis.website {
-    import base_config
-    redir https://bin.msfjarvis.dev{uri}
 }
 
 https://download.msfjarvis.website, https://dl.msfjarvis.website {
