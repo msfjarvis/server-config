@@ -9,6 +9,14 @@
     header / {
         Content-Security-Policy "
             report-uri https://msfjarvis.report-uri.com/r/d/csp/reportOnly;
+            default-src 'self';
+            style-src 'self' 'unsafe-inline' fonts.googleapis.com commento.msfjarvis.dev;
+            script-src 'self' 'unsafe-inline' commento.msfjarvis.dev;
+            font-src 'self' fonts.gstatic.com commento.msfjarvis.dev;
+            img-src data: 'self' imgur.com *.imgur.com;
+            form-action 'self';
+            connect-src 'self' msfjarvis.dev commento.msfjarvis.dev;
+            frame-ancestors 'none';
         "
         # Security related changes stolen from https://github.com/searx/searx-docker/blob/master/Caddyfile
         Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
