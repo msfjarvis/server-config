@@ -8,7 +8,6 @@
     }
     header / {
         Content-Security-Policy "
-            report-uri https://msfjarvis.report-uri.com/r/d/csp/reportOnly;
             default-src 'self';
             style-src 'self' 'unsafe-inline' fonts.googleapis.com commento.msfjarvis.dev;
             script-src 'self' 'unsafe-inline' commento.msfjarvis.dev;
