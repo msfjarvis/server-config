@@ -1,104 +1,104 @@
 (compression_config) {
-    gzip
+  gzip
 }
 
 (base_config) {
-    tls {
-        dns cloudflare
-    }
-    header / {
-        Content-Security-Policy "
-            default-src 'self';
-            style-src 'self' 'unsafe-inline' fonts.googleapis.com commento.msfjarvis.dev;
-            script-src 'self' 'unsafe-eval' 'unsafe-inline' commento.msfjarvis.dev;
-            font-src 'self' data: fonts.gstatic.com commento.msfjarvis.dev;
-            img-src data: 'self' gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev;
-            form-action 'self';
-            connect-src 'self' msfjarvis.dev commento.msfjarvis.dev;
-            frame-ancestors 'none';
-        "
-        # Security related changes stolen from https://github.com/searx/searx-docker/blob/master/Caddyfile
-        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-        X-XSS-Protection "1; mode=block"
-        X-Content-Type-Options "nosniff"
-        X-Frame-Options "SAMEORIGIN"
-        Feature-Policy "accelerometer 'none';ambient-light-sensor 'none'; autoplay 'none';camera 'none';encrypted-media 'none'; geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';midi 'none';payment 'none';picture-in-picture 'none'; speaker 'none';sync-xhr 'none';usb 'none';vr 'none'"
-        Referrer-Policy "no-referrer"
-        Cache-Control 'max-age=604800,stale-while-revalidate=10'
-    }
+  tls {
+    dns cloudflare
+  }
+  header / {
+    Content-Security-Policy "
+      default-src 'self';
+      style-src 'self' 'unsafe-inline' fonts.googleapis.com commento.msfjarvis.dev;
+      script-src 'self' 'unsafe-eval' 'unsafe-inline' commento.msfjarvis.dev;
+      font-src 'self' data: fonts.gstatic.com commento.msfjarvis.dev;
+      img-src data: 'self' gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev;
+      form-action 'self';
+      connect-src 'self' msfjarvis.dev commento.msfjarvis.dev;
+      frame-ancestors 'none';
+    "
+    # Security related changes stolen from https://github.com/searx/searx-docker/blob/master/Caddyfile
+    Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    X-XSS-Protection "1; mode=block"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "SAMEORIGIN"
+    Feature-Policy "accelerometer 'none';ambient-light-sensor 'none'; autoplay 'none';camera 'none';encrypted-media 'none'; geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';midi 'none';payment 'none';picture-in-picture 'none'; speaker 'none';sync-xhr 'none';usb 'none';vr 'none'"
+    Referrer-Policy "no-referrer"
+    Cache-Control 'max-age=604800,stale-while-revalidate=10'
+  }
 }
 
 (proxy_config) {
-    try_duration 5s
-    transparent
+  try_duration 5s
+  transparent
 }
 
 https://www.msfjarvis.dev, https://msfjarvis.website, https://www.msfjarvis.website {
-    import base_config
-    redir https://msfjarvis.dev{uri}
+  import base_config
+  redir https://msfjarvis.dev{uri}
 }
 
 https://msfjarvis.dev {
-    import base_config
-    import compression_config
-    root /var/www/msfjarvis.dev/
-    log / /etc/logs/requests.log
-    errors {
-        404 404.html
-    }
-    redir 301 {
-        /caesium-stable https://dl.msfjarvis.dev/caesium/wahoo/stable/updater.json
-        /caesium-beta https://dl.msfjarvis.dev/caesium/wahoo/beta/updater.json
-        /caesium-alpha https://dl.msfjarvis.dev/caesium/wahoo/alpha/updater.json
-    }
+  import base_config
+  import compression_config
+  root /var/www/msfjarvis.dev/
+  log / /etc/logs/requests.log
+  errors {
+    404 404.html
+  }
+  redir 301 {
+    /caesium-stable https://dl.msfjarvis.dev/caesium/wahoo/stable/updater.json
+    /caesium-beta https://dl.msfjarvis.dev/caesium/wahoo/beta/updater.json
+    /caesium-alpha https://dl.msfjarvis.dev/caesium/wahoo/alpha/updater.json
+  }
 }
 
 https://commento.msfjarvis.dev {
-    import base_config
-    import compression_config
-    proxy / http://localhost:8086 {
-        import proxy_config
-    }
+  import base_config
+  import compression_config
+  proxy / http://localhost:8086 {
+    import proxy_config
+  }
 }
 
 https://dl.msfjarvis.dev {
-    import base_config
-    root /var/www/dl.msfjarvis.dev
-    fastcgi / /run/php/php7.2-fpm.sock php
-    rewrite {
-        if {path} ends_with /
-        to {dir}/index.html {dir}/index.php /_h5ai/public/index.php
-    }
+  import base_config
+  root /var/www/dl.msfjarvis.dev
+  fastcgi / /run/php/php7.2-fpm.sock php
+  rewrite {
+    if {path} ends_with /
+    to {dir}/index.html {dir}/index.php /_h5ai/public/index.php
+  }
 }
 
 https://staging.msfjarvis.dev {
-    import base_config
-    import compression_config
-    root /var/www/staging.msfjarvis.dev/
-    errors {
-        404 404.html
-    }
+  import base_config
+  import compression_config
+  root /var/www/staging.msfjarvis.dev/
+  errors {
+    404 404.html
+  }
 }
 
 https://stats.msfjarvis.dev {
-    import base_config
-    import compression_config
-    root /var/www/stats.msfjarvis.dev/
+  import base_config
+  import compression_config
+  root /var/www/stats.msfjarvis.dev/
 }
 
 https://stats.msfjarvis.dev/ws {
-    import base_config
-    proxy / localhost:7890 {
-       websocket
-    }
+  import base_config
+  proxy / localhost:7890 {
+     websocket
+  }
 }
 
 https://download.msfjarvis.website, https://dl.msfjarvis.website {
-    import base_config
-    redir https://dl.msfjarvis.dev{uri}
+  import base_config
+  redir https://dl.msfjarvis.dev{uri}
 }
 
 https://staging.msfjarvis.website {
-    import base_config
-    redir https://staging.msfjarvis.dev{uri}
+  import base_config
+  redir https://staging.msfjarvis.dev{uri}
 }
