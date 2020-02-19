@@ -5,6 +5,7 @@
 (base_config) {
   tls {
     dns cloudflare
+    clients /etc/ssl/caddy/cloudflare-origin-pull-ca.pem
   }
   header / {
     Content-Security-Policy "
