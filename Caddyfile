@@ -6,6 +6,7 @@
   tls {
     dns cloudflare
     clients /etc/ssl/caddy/cloudflare-origin-pull-ca.pem
+    protocols tls1.2
   }
   header / {
     Content-Security-Policy "
