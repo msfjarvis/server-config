@@ -6,7 +6,6 @@ After=network.target
 Restart=on-abort
 Type=simple
 User=bot
-EnvironmentFile=/home/bot/walls-bot-rs/env
 WorkingDirectory=/home/bot/walls-bot-rs
 ExecStartPre=/usr/bin/git pull origin master
 ExecStart=/home/bot/.cargo/bin/cargo run --release
