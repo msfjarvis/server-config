@@ -96,6 +96,11 @@ https://mail.msfjarvis.dev {
     if {path} ends_with /
     to {dir}/index.php
   }
+  status 403 /forbidden
+  rewrite {
+    r ^/.*/data/?$
+    to /forbidden
+  }
 }
 
 https://mc.msfjarvis.dev {
