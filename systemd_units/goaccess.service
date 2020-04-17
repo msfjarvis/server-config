@@ -10,7 +10,7 @@ RestartSec=2s
 Type=simple
 User=caddy
 Group=caddy
-ExecStart=/usr/bin/goaccess --log-format=VCOMMON --ws-url=wss://stats.msfjarvis.dev/ws --output=/var/www/stats.msfjarvis.dev/index.html --log-file=/etc/logs/requests.log --no-query-string --anonymize-ip --double-decode --real-os --compression=zlib --real-time-html
+ExecStart=/usr/bin/goaccess --log-format=VCOMMON --output=/var/www/stats.msfjarvis.dev/index.html --log-file=/etc/logs/requests.log --no-query-string --anonymize-ip --double-decode --real-os --compression=zlib
 Restart=always
 
 # Security

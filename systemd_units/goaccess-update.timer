@@ -1,0 +1,12 @@
+[Unit]
+Description=Run goaccess every 10 minutes to update statistics
+Requires=goaccess.service
+
+[Timer]
+Unit=goaccess.service
+OnUnitInactiveSec=10m
+RandomizedDelaySec=10m
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target
