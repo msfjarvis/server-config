@@ -101,6 +101,9 @@ https://mail.msfjarvis.dev {
     r ^/.*/data/?$
     to /forbidden
   }
+  header / {
+    -X-Content-Type-Options
+  }
 }
 
 https://mc.msfjarvis.dev {
