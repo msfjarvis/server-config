@@ -103,6 +103,7 @@ https://mail.msfjarvis.dev {
   }
   header / {
     -X-Content-Type-Options
+    -Content-Security-Policy
   }
 }
 
