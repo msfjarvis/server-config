@@ -10,14 +10,16 @@
   }
   header / {
     Content-Security-Policy "
-      default-src 'self';
-      style-src 'self' 'unsafe-inline' fonts.googleapis.com commento.msfjarvis.dev;
-      script-src 'self' 'unsafe-eval' 'unsafe-inline' commento.msfjarvis.dev;
+      base-uri 'none';
+      connect-src 'self' commento.msfjarvis.dev;
+      default-src 'none';
+      frame-ancestors 'none';
+      form-action 'self';
       font-src 'self' data: fonts.gstatic.com commento.msfjarvis.dev;
       img-src data: 'self' gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev;
-      form-action 'self';
-      connect-src 'self' msfjarvis.dev commento.msfjarvis.dev;
-      frame-ancestors 'none';
+      object-src 'none';
+      script-src 'self' commento.msfjarvis.dev;
+      style-src 'self' fonts.googleapis.com commento.msfjarvis.dev;
     "
     # Security related changes stolen from https://github.com/searx/searx-docker/blob/master/Caddyfile
     Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
