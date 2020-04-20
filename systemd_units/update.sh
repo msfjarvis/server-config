@@ -8,7 +8,7 @@ function prettyPrint() {
 }
 
 # Grab all service names
-declare -a services=('caddy' 'goaccess' 'mirror-bot' 'mirror-bot-2' 'uno-bot' 'walls-bot' 'walls-bot-rs')
+declare -a services=('caddy' 'goaccess' 'mirror-bot' 'mirror-bot-2' 'uno-bot' 'pyrobud' 'walls-bot' 'walls-bot-rs')
 declare -a timers=('goaccess-update')
 
 # Now loop through each service and install it
