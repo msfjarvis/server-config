@@ -70,6 +70,10 @@ https://bin.msfjarvis.dev {
   proxy / http://localhost:8082 {
     import proxy_config
   }
+  header / {
+    -X-Content-Type-Options
+    -Content-Security-Policy
+  }
 }
 
 https://commento.msfjarvis.dev {
