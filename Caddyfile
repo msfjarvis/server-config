@@ -24,7 +24,6 @@
     # Security related changes stolen from https://github.com/searx/searx-docker/blob/master/Caddyfile
     Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
     X-XSS-Protection "1; mode=block"
-    X-Content-Type-Options "nosniff"
     X-Frame-Options "SAMEORIGIN"
     Feature-Policy "accelerometer 'none';ambient-light-sensor 'none'; autoplay 'none';camera 'none';encrypted-media 'none'; geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';midi 'none';payment 'none';picture-in-picture 'none'; speaker 'none';sync-xhr 'none';usb 'none';vr 'none'"
     Referrer-Policy "no-referrer"
@@ -71,7 +70,6 @@ https://bin.msfjarvis.dev {
     import proxy_config
   }
   header / {
-    -X-Content-Type-Options
     -Content-Security-Policy
   }
 }
@@ -108,7 +106,6 @@ https://mail.msfjarvis.dev {
     to /forbidden
   }
   header / {
-    -X-Content-Type-Options
     -Content-Security-Policy
   }
 }
