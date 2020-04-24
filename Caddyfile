@@ -114,6 +114,9 @@ https://mc.msfjarvis.dev {
   import base_config
   import compression_config
   root /var/www/mc.msfjarvis.dev/
+  header / {
+    -Content-Security-Policy
+  }
 }
 
 https://staging.msfjarvis.dev {
