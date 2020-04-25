@@ -119,6 +119,17 @@ https://mc.msfjarvis.dev {
   }
 }
 
+https://rss.msfjarvis.dev {
+  import base_config
+  import compression_config
+  proxy / http://localhost:8083 {
+    import proxy_config
+  }
+  header / {
+    -Content-Security-Policy
+  }
+}
+
 https://staging.msfjarvis.dev {
   import base_config
   import compression_config
