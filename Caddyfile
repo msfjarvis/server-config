@@ -92,20 +92,6 @@ https://dl.msfjarvis.dev {
   }
 }
 
-https://mail.msfjarvis.dev {
-  import base_config
-  root /var/www/mail.msfjarvis.dev
-  fastcgi / /run/php/php7.2-fpm.sock php
-  rewrite {
-    if {path} ends_with /
-    to {dir}/index.php
-  }
-  internal /data
-  header / {
-    -Content-Security-Policy
-  }
-}
-
 https://mc.msfjarvis.dev {
   import base_config
   import compression_config
