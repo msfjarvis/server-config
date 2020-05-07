@@ -120,16 +120,3 @@ https://staging.msfjarvis.dev {
     404 404.html
   }
 }
-
-https://stats.msfjarvis.dev {
-  import base_config
-  import compression_config
-  root /var/www/stats.msfjarvis.dev/
-}
-
-https://stats.msfjarvis.dev/ws {
-  import base_config
-  proxy / localhost:7890 {
-     websocket
-  }
-}

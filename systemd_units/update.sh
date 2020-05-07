@@ -8,8 +8,7 @@ function prettyPrint() {
 }
 
 # Grab all service names
-declare -a services=('caddy' 'goaccess' 'mirror-bot' 'mirror-bot-2' 'uno-bot' 'pyrobud' 'walls-bot' 'walls-bot-rs')
-declare -a timers=('goaccess-update')
+declare -a services=('caddy' 'mirror-bot' 'mirror-bot-2' 'uno-bot' 'pyrobud' 'walls-bot' 'walls-bot-rs')
 
 # Now loop through each service and install it
 for service in "${services[@]}"; do
@@ -28,20 +27,5 @@ for service in "${services[@]}"; do
       prettyPrint "Enabling ${service}"
       sudo systemctl enable "${service}"
     fi
-  fi
-done
-
-for timer in "${timers[@]}"; do
-  if [ "${1}" ] && [[ ${timer} != "${1}" && "${timer}.timer" != "${1}" ]]; then
-    continue
-  fi
-  prettyPrint "Checking root access"
-  sudo -v || return 1
-  prettyPrint "Installing ${timer}"
-  sudo cp -v "${timer}.timer" /etc/systemd/system/
-  sudo systemctl daemon-reload
-  if [ -z "${NO_RESTART}" ]; then
-    prettyPrint "Enabling ${timer}"
-    sudo systemctl enable "${timer}.timer"
   fi
 done
