@@ -60,6 +60,9 @@ https://acra.msfjarvis.dev {
   proxy / http://localhost:8080 {
     import proxy_config
   }
+  header / {
+    -Content-Security-Policy
+  }
 }
 
 https://bin.msfjarvis.dev {
