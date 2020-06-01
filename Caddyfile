@@ -17,8 +17,8 @@
       font-src 'self' data: commento.msfjarvis.dev stackpath.bootstrapcdn.com;
       img-src 'self' data: gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev *.amazonaws.com;
       object-src 'none';
-      script-src 'self' commento.msfjarvis.dev 'sha256-o7J3VkM1HdcyiYXa81laTjuC7e15LtXtTRm8x3cx2cw' 'nonce-Y2xvYWtlbWFpbAo=' 'unsafe-inline';
-      style-src 'self' commento.msfjarvis.dev stackpath.bootstrapcdn.com 'sha256-PjBkwE8xcYZAp+HsnzzOVNqa/Ra+/v1Fnx6f0PW6ic4=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'nonce-Y2xvYWtlbWFpbAo=' 'unsafe-inline';
+      script-src 'self' commento.msfjarvis.dev 'unsafe-inline';
+      style-src 'self' commento.msfjarvis.dev stackpath.bootstrapcdn.com 'unsafe-inline';
     "
     # Security related changes stolen from https://github.com/searx/searx-docker/blob/master/Caddyfile
     Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
