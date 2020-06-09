@@ -68,7 +68,7 @@ https://acra.msfjarvis.dev {
 https://bin.msfjarvis.dev {
   import base_config
   import compression_config
-  proxy / http://localhost:8082 {
+  proxy / http://localhost:8081 {
     import proxy_config
   }
   header / {
@@ -79,7 +79,7 @@ https://bin.msfjarvis.dev {
 https://commento.msfjarvis.dev {
   import base_config
   import compression_config
-  proxy / http://localhost:8081 {
+  proxy / http://localhost:8082 {
     import proxy_config
   }
 }
