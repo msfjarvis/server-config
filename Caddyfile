@@ -9,17 +9,6 @@
     protocols tls1.2
   }
   header / {
-    Content-Security-Policy "
-      base-uri 'self';
-      connect-src 'self' commento.msfjarvis.dev;
-      default-src 'self';
-      frame-ancestors 'none';
-      font-src 'self' data: commento.msfjarvis.dev stackpath.bootstrapcdn.com;
-      img-src 'self' data: gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev *.amazonaws.com;
-      object-src 'none';
-      script-src 'self' commento.msfjarvis.dev 'unsafe-inline';
-      style-src 'self' commento.msfjarvis.dev stackpath.bootstrapcdn.com 'unsafe-inline';
-    "
     # Security related changes stolen from https://github.com/searx/searx-docker/blob/master/Caddyfile
     Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
     X-XSS-Protection "1; mode=block"
@@ -52,6 +41,19 @@ https://msfjarvis.dev {
     /caesium-beta https://dl.msfjarvis.dev/caesium/wahoo/beta/updater.json
     /caesium-alpha https://dl.msfjarvis.dev/caesium/wahoo/alpha/updater.json
   }
+  header / {
+    Content-Security-Policy "
+      base-uri 'self';
+      connect-src 'self' commento.msfjarvis.dev;
+      default-src 'self';
+      frame-ancestors 'none';
+      font-src 'self' data: commento.msfjarvis.dev stackpath.bootstrapcdn.com;
+      img-src 'self' data: gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev *.amazonaws.com;
+      object-src 'none';
+      script-src 'self' commento.msfjarvis.dev 'unsafe-inline';
+      style-src 'self' commento.msfjarvis.dev stackpath.bootstrapcdn.com 'unsafe-inline';
+    "
+  }
 }
 
 https://acra.msfjarvis.dev {
@@ -60,9 +62,6 @@ https://acra.msfjarvis.dev {
   proxy / http://localhost:8080 {
     import proxy_config
   }
-  header / {
-    -Content-Security-Policy
-  }
 }
 
 https://bin.msfjarvis.dev {
@@ -70,9 +69,6 @@ https://bin.msfjarvis.dev {
   import compression_config
   proxy / http://localhost:8081 {
     import proxy_config
-  }
-  header / {
-    -Content-Security-Policy
   }
 }
 
@@ -98,9 +94,6 @@ https://mc.msfjarvis.dev {
   import base_config
   import compression_config
   root /var/www/mc.msfjarvis.dev/
-  header / {
-    -Content-Security-Policy
-  }
 }
 
 https://rss.msfjarvis.dev {
@@ -108,9 +101,6 @@ https://rss.msfjarvis.dev {
   import compression_config
   proxy / http://localhost:8083 {
     import proxy_config
-  }
-  header / {
-    -Content-Security-Policy
   }
 }
 
