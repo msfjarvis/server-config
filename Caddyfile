@@ -13,7 +13,7 @@
     Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
     X-XSS-Protection "1; mode=block"
     X-Frame-Options "SAMEORIGIN"
-    Feature-Policy "accelerometer 'none';ambient-light-sensor 'none'; autoplay 'none';camera 'none';encrypted-media 'none'; geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';midi 'none';payment 'none';picture-in-picture 'none'; speaker 'none';sync-xhr 'none';usb 'none';vr 'none'"
+    Feature-Policy "accelerometer 'none'; autoplay 'none';camera 'none';encrypted-media 'none'; geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';midi 'none';payment 'none';picture-in-picture 'none';sync-xhr 'none';usb 'none'"
     Referrer-Policy "no-referrer"
   }
 }
@@ -47,6 +47,7 @@ https://msfjarvis.dev {
       connect-src 'self' commento.msfjarvis.dev;
       default-src 'self';
       frame-ancestors 'none';
+      frame-src 'https://github.com';
       font-src 'self' data: commento.msfjarvis.dev stackpath.bootstrapcdn.com;
       img-src 'self' data: gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev *.amazonaws.com;
       object-src 'none';
