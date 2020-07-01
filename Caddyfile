@@ -83,12 +83,6 @@ https://dl.msfjarvis.dev {
   }
 }
 
-https://mc.msfjarvis.dev {
-  import base_config
-  import compression_config
-  root /var/www/mc.msfjarvis.dev/
-}
-
 https://rss.msfjarvis.dev {
   import base_config
   import compression_config
