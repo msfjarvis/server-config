@@ -57,14 +57,6 @@ https://msfjarvis.dev {
   }
 }
 
-https://acra.msfjarvis.dev {
-  import base_config
-  import compression_config
-  proxy / http://localhost:8080 {
-    import proxy_config
-  }
-}
-
 https://bin.msfjarvis.dev {
   import base_config
   import compression_config
