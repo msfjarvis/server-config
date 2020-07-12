@@ -98,4 +98,17 @@ https://staging.msfjarvis.dev {
   errors {
     404 404.html
   }
+  header / {
+    Content-Security-Policy "
+      base-uri 'self';
+      connect-src 'self' commento.msfjarvis.dev;
+      default-src 'self';
+      frame-ancestors 'none';
+      font-src 'self' data: commento.msfjarvis.dev stackpath.bootstrapcdn.com;
+      img-src 'self' data: gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev *.amazonaws.com;
+      object-src 'none';
+      script-src 'self' commento.msfjarvis.dev unpkg.com;
+      style-src 'self' commento.msfjarvis.dev stackpath.bootstrapcdn.com;
+    "
+  }
 }
