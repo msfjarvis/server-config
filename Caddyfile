@@ -52,7 +52,7 @@ https://msfjarvis.dev {
       img-src 'self' data: gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev;
       object-src 'none';
       script-src 'self' commento.msfjarvis.dev unpkg.com;
-      style-src 'self' commento.msfjarvis.dev stackpath.bootstrapcdn.com;
+      style-src 'self' commento.msfjarvis.dev stackpath.bootstrapcdn.com 'unsafe-inline';
     "
   }
 }
