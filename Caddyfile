@@ -32,7 +32,7 @@
       frame-ancestors 'none';
       frame-src github.com platform.twitter.com;
       font-src 'self' data: commento.msfjarvis.dev;
-      img-src 'self' data: gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev;
+      img-src 'self' data: gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev syndication.twitter.com;
       object-src 'none';
       script-src 'self' commento.msfjarvis.dev platform.twitter.com unpkg.com;
       style-src 'self' commento.msfjarvis.dev 'unsafe-inline';
