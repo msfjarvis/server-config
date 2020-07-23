@@ -101,3 +101,11 @@ https://staging.msfjarvis.dev {
   import csp_config
   root /var/www/staging.msfjarvis.dev/
 }
+
+https://stats.msfjarvis.dev {
+  import base_config
+  import compression_config
+  proxy / http://localhost:8084 {
+    import proxy_config
+  }
+}
