@@ -95,13 +95,6 @@ https://rss.msfjarvis.dev {
   }
 }
 
-https://staging.msfjarvis.dev {
-  import base_config
-  import compression_config
-  import csp_config
-  root /var/www/staging.msfjarvis.dev/
-}
-
 https://stats.msfjarvis.dev {
   import base_config
   import compression_config
