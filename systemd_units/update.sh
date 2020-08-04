@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CL_RST="\033[0m"
 CL_YLW="\033[01;33m"
