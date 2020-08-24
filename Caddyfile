@@ -1,12 +1,8 @@
 https://dl.msfjarvis.dev {
   tls {
-    dns cloudflare
+    dns cloudflare ${env.CLOUDFLARE_API_TOKEN}
     protocols tls1.2
   }
-  root /var/www/dl.msfjarvis.dev
-  fastcgi / /run/php/php7.2-fpm.sock php
-  rewrite {
-    if {path} ends_with /
-    to {dir}/index.html {dir}/index.php /_h5ai/public/index.php
-  }
+  root * /var/www/dl.msfjarvis.dev
+  php_fastcgi unix//run/php/php7.2-fpm.sock
 }
