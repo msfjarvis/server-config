@@ -1,104 +1,12 @@
-(compression_config) {
-  gzip
-}
-
-(base_config) {
+https://dl.msfjarvis.dev {
   tls {
     dns cloudflare
-    clients /etc/ssl/caddy/cloudflare-origin-pull-ca.pem
     protocols tls1.2
   }
-  header / {
-    # Security related changes stolen from https://github.com/searx/searx-docker/blob/master/Caddyfile
-    Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-    X-XSS-Protection "1; mode=block"
-    X-Frame-Options "SAMEORIGIN"
-    Feature-Policy "accelerometer 'none'; autoplay 'none';camera 'none';encrypted-media 'none'; geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';midi 'none';payment 'none';picture-in-picture 'none';sync-xhr 'none';usb 'none'"
-    Referrer-Policy "no-referrer"
-  }
-}
-
-(proxy_config) {
-  try_duration 5s
-  transparent
-}
-
-(csp_config) {
-  header / {
-    Content-Security-Policy "
-      base-uri 'self';
-      connect-src 'self' commento.msfjarvis.dev;
-      default-src 'self';
-      frame-ancestors 'none';
-      frame-src asciinema.org github.com platform.twitter.com;
-      font-src 'self' data: commento.msfjarvis.dev;
-      img-src 'self' data: gfycat.com imgur.com *.imgur.com commento.msfjarvis.dev syndication.twitter.com;
-      object-src 'none';
-      script-src 'self' asciinema.org commento.msfjarvis.dev platform.twitter.com unpkg.com;
-      style-src 'self' commento.msfjarvis.dev 'unsafe-inline';
-    "
-  }
-  errors {
-    404 404.html
-  }
-}
-
-https://www.msfjarvis.dev {
-  import base_config
-  redir https://msfjarvis.dev{uri} 301
-}
-
-https://msfjarvis.dev {
-  import base_config
-  import compression_config
-  import csp_config
-  root /var/www/msfjarvis.dev/
-  log / /etc/logs/requests.log
-  redir 301 {
-    /caesium-stable https://dl.msfjarvis.dev/caesium/wahoo/stable/updater.json
-    /caesium-beta https://dl.msfjarvis.dev/caesium/wahoo/beta/updater.json
-    /caesium-alpha https://dl.msfjarvis.dev/caesium/wahoo/alpha/updater.json
-  }
-}
-
-https://bin.msfjarvis.dev {
-  import base_config
-  import compression_config
-  proxy / http://localhost:8081 {
-    import proxy_config
-  }
-}
-
-https://commento.msfjarvis.dev {
-  import base_config
-  import compression_config
-  proxy / http://localhost:8082 {
-    import proxy_config
-  }
-}
-
-https://dl.msfjarvis.dev {
-  import base_config
   root /var/www/dl.msfjarvis.dev
   fastcgi / /run/php/php7.2-fpm.sock php
   rewrite {
     if {path} ends_with /
     to {dir}/index.html {dir}/index.php /_h5ai/public/index.php
-  }
-}
-
-https://rss.msfjarvis.dev {
-  import base_config
-  import compression_config
-  proxy / http://localhost:8083 {
-    import proxy_config
-  }
-}
-
-https://stats.msfjarvis.dev {
-  import base_config
-  import compression_config
-  proxy / http://localhost:8084 {
-    import proxy_config
   }
 }
