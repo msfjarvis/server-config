@@ -8,7 +8,7 @@ function prettyPrint() {
 }
 
 # Grab all service names
-declare -a services=('caddy' 'mirror-bot' 'mirror-bot-2' 'uno-bot' 'pyrobud' 'walls-bot' 'walls-bot-rs')
+declare -a services=('mirror-bot' 'mirror-bot-2' 'uno-bot')
 
 # Now loop through each service and install it
 for service in "${services[@]}"; do
