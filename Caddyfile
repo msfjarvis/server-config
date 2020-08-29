@@ -1,8 +1,0 @@
-https://dl.msfjarvis.dev {
-  tls {
-    dns cloudflare ${env.CLOUDFLARE_API_TOKEN}
-    protocols tls1.2
-  }
-  root * /var/www/dl.msfjarvis.dev
-  php_fastcgi unix//run/php/php7.2-fpm.sock
-}
