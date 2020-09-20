@@ -1,8 +1,10 @@
 # generated 2020-08-25, Mozilla Guideline v5.6, nginx 1.17.7, OpenSSL 1.1.1d, intermediate configuration
 # https://ssl-config.mozilla.org/#server=nginx&version=1.17.7&config=intermediate&openssl=1.1.1d&guideline=5.6
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80;
+    listen [::]:80;
+
+    server_name dl.msfjarvis.dev;
 
     return 301 https://$host$request_uri;
 }
@@ -16,8 +18,8 @@ server {
     root /var/www/dl.msfjarvis.dev;
     index  index.html  index.php  /_h5ai/public/index.php;
 
-    ssl_certificate /etc/letsencrypt/live/dl.msfjarvis.dev/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/dl.msfjarvis.dev/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/msfjarvis.dev/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/msfjarvis.dev/privkey.pem;
     ssl_session_timeout 1d;
     ssl_session_cache shared:MozSSL:10m;  # about 40000 sessions
     ssl_session_tickets off;
@@ -36,6 +38,10 @@ server {
     # OCSP stapling
     ssl_stapling on;
     ssl_stapling_verify on;
+
+    # Authenticated origin pulls
+    # ssl_client_certificate /etc/nginx/certs/cloudflare.crt;
+    # ssl_verify_client on;
 
     # verify chain of trust of OCSP response using Root CA and Intermediate certs
     # ssl_trusted_certificate /path/to/root_CA_cert_plus_intermediates;
