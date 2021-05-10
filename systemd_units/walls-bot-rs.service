@@ -10,6 +10,7 @@ WorkingDirectory=/home/bot
 EnvironmentFile=/home/bot/walls-bot.config
 ExecStart=/usr/bin/walls-bot-rs
 ExecReload=/bin/kill -USR1 $MAINPID
+ReadOnlyDirectories=/var/www/dl.msfjarvis.dev/.walls
 KillMode=mixed
 KillSignal=SIGQUIT
 TimeoutStopSec=5s
