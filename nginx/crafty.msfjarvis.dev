@@ -15,7 +15,7 @@ server {
 
     server_name crafty.msfjarvis.dev;
 
-    root /home/minecraft/main-server/output;
+    root /home/minecraft/wack-server/output;
     index  index.html;
 
     ssl_certificate /etc/letsencrypt/live/msfjarvis.dev/fullchain.pem;
