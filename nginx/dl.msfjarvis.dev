@@ -18,9 +18,10 @@ server {
     root /var/www/dl.msfjarvis.dev;
     index  index.html  index.php  /_h5ai/public/index.php;
 
-    ssl_certificate /etc/letsencrypt/live/msfjarvis.dev/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/msfjarvis.dev/privkey.pem;
-    ssl_session_timeout 1d;
+    ssl_certificate         /etc/ssl/certs/cert.pem;
+    ssl_certificate_key     /etc/ssl/private/key.pem;
+    ssl_client_certificate  /etc/ssl/certs/cloudflare.crt;
+    ssl_verify_client on;
     ssl_session_cache shared:MozSSL:10m;  # about 40000 sessions
     ssl_session_tickets off;
 
@@ -34,17 +35,6 @@ server {
 
     # HSTS (ngx_http_headers_module is required) (63072000 seconds)
     add_header Strict-Transport-Security "max-age=63072000" always;
-
-    # OCSP stapling
-    ssl_stapling on;
-    ssl_stapling_verify on;
-
-    # Authenticated origin pulls
-    # ssl_client_certificate /etc/nginx/certs/cloudflare.crt;
-    # ssl_verify_client on;
-
-    # verify chain of trust of OCSP response using Root CA and Intermediate certs
-    # ssl_trusted_certificate /path/to/root_CA_cert_plus_intermediates;
 
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
