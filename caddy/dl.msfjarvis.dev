@@ -1,0 +1,33 @@
+i915box.tiger-shark.ts.net {
+	root * /var/www/dl.msfjarvis.dev
+	php_fastcgi unix//run/php/php-fpm.sock {
+		try_files {path} {path}/index.php /_h5ai/public/index.php =404
+	}
+	file_server
+	encode gzip
+	@static {
+		file
+		path *.ico *.css *.js *.gif *.jpg *.jpeg *.png *.svg *.woff *.pdf *.webp
+	}
+	header @static Cache-Control max-age=5184000
+}
+
+dl.msfjarvis.dev {
+	root * /var/www/dl.msfjarvis.dev
+	php_fastcgi unix//run/php/php-fpm.sock {
+		try_files {path} {path}/index.php /_h5ai/public/index.php =404
+	}
+	tls /etc/caddy/cert.pem /etc/caddy/key.pem {
+		client_auth {
+			mode					require_and_verify
+			trusted_ca_cert_file	/etc/caddy/cloudflare_origin_cert.pem
+		}
+	}
+	file_server
+	encode gzip
+	@static {
+		file
+		path *.ico *.css *.js *.gif *.jpg *.jpeg *.png *.svg *.woff *.pdf *.webp
+	}
+	header @static Cache-Control max-age=5184000
+}
