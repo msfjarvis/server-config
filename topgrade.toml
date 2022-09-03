@@ -1,3 +1,0 @@
-cleanup = true
-enable = ["system", "nix"]
-set_title = false
