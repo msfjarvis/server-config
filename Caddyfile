@@ -17,11 +17,8 @@ dl.msfjarvis.dev {
 	php_fastcgi unix//run/php/php-fpm.sock {
 		try_files {path} {path}/index.php /_h5ai/public/index.php =404
 	}
-	tls /etc/caddy/cert.pem /etc/caddy/key.pem {
-		client_auth {
-			mode					require_and_verify
-			trusted_ca_cert_file	/etc/caddy/cloudflare_origin_cert.pem
-		}
+	tls {
+		dns netlify
 	}
 	file_server
 	encode gzip
