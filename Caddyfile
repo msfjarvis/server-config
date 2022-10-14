@@ -1,12 +1,9 @@
 dl.msfjarvis.dev {
 	root * /var/www/dl.msfjarvis.dev
-	php_fastcgi unix//run/php/php-fpm.sock {
-		try_files {path} {path}/index.php /_h5ai/public/index.php =404
-	}
 	tls {
-		dns netlify
+		dns netlify {$NETLIFY_API_TOKEN}
 	}
-	file_server
+	file_server browse
 	encode gzip
 	@static {
 		file
