@@ -1,0 +1,11 @@
+app = "golink-msfjarvis"
+
+[build]
+image = "ghcr.io/tailscale/golink:main"
+
+[deploy]
+strategy = "immediate"
+
+[mounts]
+source="golink_volume"
+destination="/root"
