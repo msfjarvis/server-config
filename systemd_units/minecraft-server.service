@@ -1,0 +1,31 @@
+[Unit]
+Description=Private Minecraft server
+After=network.target
+
+[Service]
+Restart=on-abort
+Type=simple
+User=minecraft
+WorkingDirectory=/opt/minecraft/server
+ExecStartPre=/usr/bin/env bash update.sh
+ExecStart=/usr/bin/env bash start.sh
+ExecStop=/usr/bin/env bash stop.sh
+KillMode=mixed
+KillSignal=SIGQUIT
+TimeoutStopSec=10s
+
+# Security
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+PrivateDevices=true
+RestrictAddressFamilies=AF_INET
+RestrictNamespaces=true
+RestrictRealtime=true
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target
