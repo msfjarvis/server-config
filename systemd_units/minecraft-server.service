@@ -3,7 +3,8 @@ Description=Private Minecraft server
 After=network.target
 
 [Service]
-Restart=on-abort
+Restart=always
+RuntimeMaxSec=3d
 Type=simple
 User=minecraft
 WorkingDirectory=/opt/minecraft/server
