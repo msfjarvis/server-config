@@ -15,7 +15,7 @@ function update_paper() {
 }
 
 function cleanup_previous_jars() {
-  find . -maxdepth 1 -type f -name 'paper-*.jar' | sort -r | tail -n +3 | xargs rm -v
+  find . -maxdepth 1 -type f -name 'paper-*.jar' | sort -r | tail -n +3 | xargs rm -vf
 }
 
 update_paper
