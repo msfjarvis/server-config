@@ -8,4 +8,4 @@ strategy = "immediate"
 
 [mounts]
 source="golink_volume"
-destination="/root"
+destination="/home/nonroot"
