@@ -3,8 +3,7 @@ Description=Private Minecraft server
 After=network.target
 
 [Service]
-Restart=always
-RuntimeMaxSec=3d
+Restart=on-success
 Type=simple
 User=minecraft
 WorkingDirectory=/opt/minecraft/server
@@ -13,7 +12,7 @@ ExecStart=/usr/bin/env bash start.sh
 ExecStop=/usr/bin/env bash stop.sh
 KillMode=mixed
 KillSignal=SIGQUIT
-TimeoutStopSec=10s
+TimeoutStopSec=60s
 
 # Security
 PrivateTmp=true
